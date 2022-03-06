@@ -7,8 +7,8 @@
 
 
 struct Character: Decodable {
-    let info: [DetailInfo]
-    let results: [DetailResult]
+    //let info: DetailInfo?
+    let results: [DetailResult]?
     
 }
 
@@ -22,4 +22,5 @@ struct DetailInfo: Decodable {
 
 struct DetailResult: Decodable {
     let image: String?
+    let name: String?
 }

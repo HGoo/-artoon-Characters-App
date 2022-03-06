@@ -14,10 +14,25 @@ class CharacterCell: UITableViewCell {
     
     
     func configure(with character: Character) {
-        //nameCell.text = character.info
+        print("2222222222")
+        //nameCell.text = character.results
+       
+        print("3333333, \(character)")
+        
+        for i in character.results {
+            nameCell.text = i.name
+            
+        }
+        
+        
         
 //        DispatchQueue.global().async {
-//            guard let imageUrl = URL(string: character.results.)
+//            guard let imageUrl = URL(string: character.image!) else { return }
+//            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+//           
+//            DispatchQueue.main.async {
+//                self.imageInCell.image = UIImage(data: imageData)
+//            }
 //        }
     }
 

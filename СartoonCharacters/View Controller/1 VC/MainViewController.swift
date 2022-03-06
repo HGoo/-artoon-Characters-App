@@ -50,19 +50,20 @@ class MainViewController: UICollectionViewController {
         default: break
             
         }
-        
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            let characterVC = segue.destination as! CharactersViewController
-            
-            switch segue.identifier {
-            case "rickAndMorty":
-                characterVC.fetchDataRaM()
-                print("we")
-            default: break
-            }
-        }
-        
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let characterVC = segue.destination as! CharactersViewController
+        
+        switch segue.identifier {
+        case "rickAndMorty":
+            characterVC.fetchDataRaM()
+        default: break
+        }
+    }
+    
+    
 }
 
 
