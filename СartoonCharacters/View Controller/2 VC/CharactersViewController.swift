@@ -14,18 +14,14 @@ class CharactersViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       print("000000000")
-        return 1
+        return characters?.results?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as! CharacterCell
         
-        
-        print("11111111111111111")
-        
-        let character = characters
-        cell.configure(with: character!)
+        let character = (characters?.results?[indexPath.row])
+        cell.configure(with: character ?? 0)
         
         return cell
     }

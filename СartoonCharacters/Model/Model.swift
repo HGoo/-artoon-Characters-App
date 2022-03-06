@@ -7,7 +7,7 @@
 
 
 struct Character: Decodable {
-    //let info: DetailInfo?
+    let info: DetailInfo?
     let results: [DetailResult]?
     
 }
