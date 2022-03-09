@@ -20,8 +20,8 @@ class CharactersViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as! CharacterCell
         
-        let character = (characters?.results?[indexPath.row])
-        cell.configure(with: character ?? 0)
+        let character = (characters?.results?[indexPath.row])!
+        cell.configure(with: character)
         
         return cell
     }
@@ -40,7 +40,9 @@ class CharactersViewController: UITableViewController {
             
             do {
                 self.characters = try JSONDecoder().decode(Character.self, from: data)
-                //let character = try JSONDecoder().decode(Character.self, from: data)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
                 print(self.characters ?? "22")
             } catch let error {
                 print(error)
