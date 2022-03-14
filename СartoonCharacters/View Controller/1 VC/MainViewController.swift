@@ -33,8 +33,8 @@ class MainViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! UserActionCell
         
-        cell.characterActionImage.image = UIImage(named: logoImage.image[indexPath.row])
         
+        cell.characterActionImage.image = UIImage(named: logoImage.image[indexPath.row])
         
         return cell
     }
@@ -42,9 +42,10 @@ class MainViewController: UICollectionViewController {
     // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let userAction = cartons[indexPath.item]
+      
         
+    
         switch userAction {
-            
         case .rickAndMorty:
             performSegue(withIdentifier: "rickAndMorty", sender: self)
         default: break
