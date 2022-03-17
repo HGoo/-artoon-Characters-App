@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DD11F4AE27DA87190025A8F4 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11F4AD27DA87190025A8F4 /* CellView.swift */; };
+		DD11F4EE27E356D70025A8F4 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11F4ED27E356D70025A8F4 /* ImageView.swift */; };
 		DD2A6EA127D33EB7007AA8AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A6EA027D33EB7007AA8AC /* AppDelegate.swift */; };
 		DD2A6EA327D33EB7007AA8AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A6EA227D33EB7007AA8AC /* SceneDelegate.swift */; };
 		DD2A6EA827D33EB7007AA8AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD2A6EA627D33EB7007AA8AC /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		DD11F4AD27DA87190025A8F4 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		DD11F4ED27E356D70025A8F4 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		DD2A6E9D27D33EB7007AA8AC /* СartoonCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "СartoonCharacters.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2A6EA027D33EB7007AA8AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD2A6EA227D33EB7007AA8AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				DD2A6EC027D34B32007AA8AC /* CharactersViewController.swift */,
 				DD2A6EC227D34EE9007AA8AC /* CharacterCell.swift */,
+				DD11F4ED27E356D70025A8F4 /* ImageView.swift */,
 			);
 			path = "2 VC";
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD11F4EE27E356D70025A8F4 /* ImageView.swift in Sources */,
 				DD2A6EA127D33EB7007AA8AC /* AppDelegate.swift in Sources */,
 				DD2A6EBE27D34AAD007AA8AC /* UserActionCell.swift in Sources */,
 				DD2A6EC527D35292007AA8AC /* Model.swift in Sources */,
