@@ -59,7 +59,7 @@ class MainViewController: UICollectionViewController {
         
         switch segue.identifier {
         case "rickAndMorty":
-            characterVC.fetchDataRaM()
+            characterVC.fetchCountCharachters()
         default: break
         }
     }
