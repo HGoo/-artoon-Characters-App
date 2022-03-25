@@ -10,6 +10,7 @@ import UIKit
 class ImageView: UIImageView {
     
     func fetchImage( wuth url: String?){
+        image = UIImage(named: "notFound")
         guard let url = url else { return }
         guard let imageUrl = url.getURL() else {
             image = UIImage(named: "notFound")
@@ -21,16 +22,21 @@ class ImageView: UIImageView {
             return
         }
         
-        URLSession.shared.dataTask(with: imageUrl) { data, response, error in
+        URLSession.shared.dataTask(with: imageUrl) { [weak self] data, response, error in
             if let error = error { print(error); return }
+            guard let self = self else { return }
             guard let data = data, let response = response else { return }
             guard let responseURL = response.url else {  return }
             
             if responseURL.absoluteString != url { return }
             
-            DispatchQueue.main.async {
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+
                 self.image = UIImage(data: data)
             }
+
             
             self.saveImageToCache(data: data, response: response)
             

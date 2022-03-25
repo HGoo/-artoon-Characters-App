@@ -14,16 +14,15 @@ class CharactersViewController: UITableViewController {
     var jsonCountCharacters: Character?
     
     private var characters: [DetailResult]?
-    
-    
+        
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as! CharacterCell
-        
-        let character = (characters?[indexPath.row])!
+                
+        let character = (characters?[indexPath.row])
         cell.configure(with: character)
         
         return cell

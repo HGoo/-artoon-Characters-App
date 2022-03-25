@@ -13,7 +13,8 @@ class CharacterCell: UITableViewCell {
     @IBOutlet var nameCell: UILabel!
     
     
-    func configure(with character: DetailResult) {
+    func configure(with character: DetailResult?) {
+        guard let character = character else { return }
         nameCell.text = character.name
     
         imageInCell.fetchImage(wuth: character.image)

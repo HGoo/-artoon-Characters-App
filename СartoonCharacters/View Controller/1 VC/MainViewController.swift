@@ -23,7 +23,7 @@ class MainViewController: UICollectionViewController {
     
     let cartons = Cartoons.allCases
     let logoImage = Image()
-    
+        
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cartons.count
@@ -31,12 +31,13 @@ class MainViewController: UICollectionViewController {
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! UserActionCell
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! UserActionCell
         
         cell.characterActionImage.image = UIImage(named: logoImage.image[indexPath.row])
         
         return cell
+        
     }
     
     // MARK: - UICollectionViewDelegate
@@ -60,14 +61,13 @@ class MainViewController: UICollectionViewController {
         switch segue.identifier {
         case "rickAndMorty":
             characterVC.fetchCountCharachters()
+            
         default: break
         }
     }
     
     
 }
-
-
 
 // MARK: - CollectionViewDelegateFlowLayout
 extension MainViewController: UICollectionViewDelegateFlowLayout {

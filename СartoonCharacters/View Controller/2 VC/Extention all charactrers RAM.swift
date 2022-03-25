@@ -8,8 +8,7 @@
 import Foundation
 
 extension CharactersViewController {
-    
-    
+
     func fetchCountCharachters() {
         
         guard let url = URL(string: jsonUrlRaM ) else { return }
@@ -19,9 +18,10 @@ extension CharactersViewController {
             
             do {
                 self.jsonCountCharacters = try JSONDecoder().decode(Character.self, from: data)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
                     self.getUrlCount()
+                    self.tableView.reloadData()
                 }
                 print(self.jsonCountCharacters ?? "")
             } catch let error {
@@ -32,10 +32,10 @@ extension CharactersViewController {
     
     func getUrlCount() {
         
-        guard let countChar = jsonCountCharacters?.info?.count else { print("1.5"); return}
+        guard let countChar = jsonCountCharacters?.info?.count else { return }
         var finalStringURL = jsonUrlRaM + "/"
         
-        for char in 1...countChar {
+        for char in 1...(countChar) {
             if char != countChar {
                 finalStringURL += String(char) + ","
             } else {

@@ -79,7 +79,6 @@
 				DD2A6EB627D3420E007AA8AC /* Model */,
 				DD2A6EB527D34201007AA8AC /* View Controller */,
 				DD2A6EB427D341F0007AA8AC /* Storyboard */,
-				DD2A6EB727D34220007AA8AC /* Helper */,
 			);
 			path = "СartoonCharacters";
 			sourceTree = "<group>";
@@ -109,13 +108,6 @@
 				DD2A6EC827D36EEB007AA8AC /* Image.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		DD2A6EB727D34220007AA8AC /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		DD2A6EB827D342A2007AA8AC /* 1 VC */ = {
