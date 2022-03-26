@@ -17,7 +17,10 @@ class CharacterCell: UITableViewCell {
         guard let character = character else { return }
         nameCell.text = character.name
     
+        
+        
         imageInCell.fetchImage(wuth: character.image)
+       
     }
 
 }

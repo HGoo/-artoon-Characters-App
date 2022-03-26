@@ -9,16 +9,19 @@ import UIKit
 
 class ImageView: UIImageView {
     
+    var cellTag: Int?
+    var indexPath: Int?
+    
     func fetchImage( wuth url: String?){
-        image = UIImage(named: "notFound")
         guard let url = url else { return }
         guard let imageUrl = url.getURL() else {
             image = UIImage(named: "notFound")
             return
         }
-        
-        if let cachedImage = getCachedImage(url: imageUrl) {
-            image = cachedImage
+            
+        if let cachedImage = self.getCachedImage(url: imageUrl), cellTag == indexPath {
+            print("99999999999999999999")
+            self.image = cachedImage
             return
         }
         
@@ -27,24 +30,24 @@ class ImageView: UIImageView {
             guard let self = self else { return }
             guard let data = data, let response = response else { return }
             guard let responseURL = response.url else {  return }
-            
-            if responseURL.absoluteString != url { return }
-            
-            
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
 
+            if responseURL.absoluteString != url { return }
+
+
+            DispatchQueue.main.async { [weak self] in
+                print("00000000000000000000")
+                guard let self = self else { return }
                 self.image = UIImage(data: data)
             }
 
-            
+
             self.saveImageToCache(data: data, response: response)
-            
+
         }.resume()
     }
     
    
-    private func saveImageToCache(data: Data, response: URLResponse) {
+    func saveImageToCache(data: Data, response: URLResponse) {
         guard let responseURL = response.url else { return }
         let cachedResponse = CachedURLResponse(response: response, data: data)
         URLCache.shared.storeCachedResponse(cachedResponse, for: URLRequest(url: responseURL))

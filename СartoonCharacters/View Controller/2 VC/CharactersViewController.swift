@@ -14,14 +14,19 @@ class CharactersViewController: UITableViewController {
     var jsonCountCharacters: Character?
     
     private var characters: [DetailResult]?
-        
+       
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as! CharacterCell
-                
+         
+        cell.tag = indexPath.row
+        let imageVC = ImageView()
+        imageVC.cellTag = cell.tag
+        imageVC.indexPath = indexPath.row
+        
         let character = (characters?[indexPath.row])
         cell.configure(with: character)
         
@@ -43,10 +48,14 @@ class CharactersViewController: UITableViewController {
         
         URLSession.shared.dataTask(with: url) { data, _, _ in
             guard let data = data else { return }
-            
+           
             do {
                 self.characters = try JSONDecoder().decode([DetailResult].self, from: data)
+                
                 DispatchQueue.main.async {
+//                    
+//                    self.preLoadImage()
+//                    print("RELOAD")
                     self.tableView.reloadData()
                 }
                 print(self.characters ?? "Error characters")
@@ -55,6 +64,30 @@ class CharactersViewController: UITableViewController {
             }
         }.resume()
         
+        
     }
+    
+//    func preLoadImage() {
+//
+//        characters?.map { char in
+//
+//            guard let url = char.image else { return }
+//            guard let imgeUrl = URL(string: url) else { return }
+//
+//            URLSession.shared.dataTask(with: imgeUrl) { data, response, error in
+//                if let error = error { print(error); return }
+//                guard let data = data, let response = response else { return }
+//                guard let responseURL = response.url else {  return }
+//
+//                if responseURL.absoluteString != url { return }
+//
+//                DispatchQueue.main.async {
+//                    print(url)
+//                    ImageView().saveImageToCache(data: data, response: response)
+//                }
+//
+//            }.resume()
+//        }
+//    }
 
 }
