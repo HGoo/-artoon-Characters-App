@@ -25,7 +25,7 @@ class CharactersViewController: UITableViewController {
         cell.tag = indexPath.row
         let imageVC = ImageView()
         imageVC.cellTag = cell.tag
-        imageVC.indexPath = indexPath.row
+        imageVC.indexPath = indexPath
         
         let character = (characters?[indexPath.row])
         cell.configure(with: character)
@@ -33,6 +33,10 @@ class CharactersViewController: UITableViewController {
         return cell
     }
     
+//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        <#code#>
+//    }
+        
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
@@ -53,9 +57,8 @@ class CharactersViewController: UITableViewController {
                 self.characters = try JSONDecoder().decode([DetailResult].self, from: data)
                 
                 DispatchQueue.main.async {
-//                    
-//                    self.preLoadImage()
-//                    print("RELOAD")
+                    //self.preLoadImage()
+                    print("RELOAD")
                     self.tableView.reloadData()
                 }
                 print(self.characters ?? "Error characters")

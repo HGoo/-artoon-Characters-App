@@ -21,6 +21,8 @@ struct DetailInfo: Decodable {
 
 
 struct DetailResult: Decodable {
-    let image: String?
+    let id: Int?
     let name: String?
+    let status: String?
+    let image: String?
 }

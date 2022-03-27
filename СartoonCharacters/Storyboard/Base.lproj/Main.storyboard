@@ -113,7 +113,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Species" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7w2-4J-nus">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7w2-4J-nus">
                                                     <rect key="frame" x="0.0" y="97.5" width="251" height="48.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -139,8 +139,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="idChar" destination="7w2-4J-nus" id="4rF-0H-ceU"/>
                                     <outlet property="imageInCell" destination="vka-WK-mX8" id="qly-Rg-CRi"/>
                                     <outlet property="nameCell" destination="bdC-6H-j4I" id="hfy-eO-uuw"/>
+                                    <outlet property="status" destination="TGj-IR-N4G" id="XmG-eH-CPu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

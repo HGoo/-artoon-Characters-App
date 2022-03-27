@@ -10,23 +10,25 @@ import UIKit
 class ImageView: UIImageView {
     
     var cellTag: Int?
-    var indexPath: Int?
+    var indexPath: IndexPath?
     
-    func fetchImage( wuth url: String?){
-        guard let url = url else { return }
+    func fetchImage(with urls: DetailResult){
+        guard let url = urls.image else { return }
         guard let imageUrl = url.getURL() else {
             image = UIImage(named: "notFound")
             return
         }
             
-        if let cachedImage = self.getCachedImage(url: imageUrl), cellTag == indexPath {
+        if let cachedImage = self.getCachedImage(url: imageUrl) {
             print("99999999999999999999")
             self.image = cachedImage
             return
+            
         }
-        
+      
         URLSession.shared.dataTask(with: imageUrl) { [weak self] data, response, error in
             if let error = error { print(error); return }
+
             guard let self = self else { return }
             guard let data = data, let response = response else { return }
             guard let responseURL = response.url else {  return }
@@ -38,9 +40,9 @@ class ImageView: UIImageView {
                 print("00000000000000000000")
                 guard let self = self else { return }
                 self.image = UIImage(data: data)
+                
             }
-
-
+            
             self.saveImageToCache(data: data, response: response)
 
         }.resume()
