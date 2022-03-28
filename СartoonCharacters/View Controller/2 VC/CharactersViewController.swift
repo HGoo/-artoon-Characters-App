@@ -14,6 +14,8 @@ class CharactersViewController: UITableViewController {
     var jsonCountCharacters: Character?
     
     private var characters: [DetailResult]?
+    
+    var page = 0
        
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters?.count ?? 0
@@ -28,13 +30,19 @@ class CharactersViewController: UITableViewController {
         imageVC.indexPath = indexPath
         
         let character = (characters?[indexPath.row])
-        cell.configure(with: character)
+        cell.configure(with: character, cell.tag)
         
         return cell
     }
     
 //    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        <#code#>
+//        print("WIL DISPLAY")
+//        guard let url = URL(string: characters?[indexPath.row].image ?? "") else { return }
+//        print("WIL DISPLAY2")
+//        guard let _ = ImageView().getCachedImage(url: url) else { return }
+//        print("WIL DISPLAY3")
+//        preLoadImage(indexPath)
+//        
 //    }
         
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -70,27 +78,26 @@ class CharactersViewController: UITableViewController {
         
     }
     
-//    func preLoadImage() {
-//
-//        characters?.map { char in
-//
-//            guard let url = char.image else { return }
-//            guard let imgeUrl = URL(string: url) else { return }
-//
-//            URLSession.shared.dataTask(with: imgeUrl) { data, response, error in
-//                if let error = error { print(error); return }
-//                guard let data = data, let response = response else { return }
-//                guard let responseURL = response.url else {  return }
-//
-//                if responseURL.absoluteString != url { return }
-//
-//                DispatchQueue.main.async {
-//                    print(url)
-//                    ImageView().saveImageToCache(data: data, response: response)
-//                }
-//
-//            }.resume()
-//        }
-//    }
+    func preLoadImage(_ index: IndexPath) {
+
+        guard let url = characters?[index.row + 2].image else { return }
+        print(url)
+        guard let imgeUrl = URL(string: url) else { return }
+
+        URLSession.shared.dataTask(with: imgeUrl) { data, response, error in
+            if let error = error { print(error); return }
+            guard let data = data, let response = response else { return }
+            guard let responseURL = response.url else {  return }
+
+            if responseURL.absoluteString != url { return }
+
+            DispatchQueue.main.async {
+                //print(url)
+                ImageView().saveImageToCache(data: data, response: response)
+            }
+
+        }.resume()
+
+    }
 
 }

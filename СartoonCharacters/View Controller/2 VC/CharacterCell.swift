@@ -14,16 +14,31 @@ class CharacterCell: UITableViewCell {
     @IBOutlet var status: UILabel!
     @IBOutlet var idChar: UILabel!
     
+    private weak var task: URLSessionTask?
     
-    func configure(with character: DetailResult?) {
+    var character: DetailResult!
+    var celltag: Int!
+    
+    func configure(with character: DetailResult?, _ celltag: Int) {
         guard let character = character else { return }
         nameCell.text = character.name
-        status.text = character.status
+        status.text = character.name
         idChar.text = "\(character.id ?? 0)"
         
-    
-        imageInCell.fetchImage(with: character)
-       
+        
+        self.character = character
+        self.celltag = celltag
+        imageInCell.fetchImage(with: character, celltag)
     }
+    
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        if celltag + 1 != character.id {
+//        task?.cancel()
+//        }
+//        
+//        imageInCell.fetchImage(with: character , celltag)
+//    }
 
+    
 }

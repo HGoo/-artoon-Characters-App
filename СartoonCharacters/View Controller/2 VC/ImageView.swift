@@ -12,7 +12,7 @@ class ImageView: UIImageView {
     var cellTag: Int?
     var indexPath: IndexPath?
     
-    func fetchImage(with urls: DetailResult){
+    func fetchImage(with urls: DetailResult, _ celltag: Int){
         guard let url = urls.image else { return }
         guard let imageUrl = url.getURL() else {
             image = UIImage(named: "notFound")
@@ -35,14 +35,18 @@ class ImageView: UIImageView {
 
             if responseURL.absoluteString != url { return }
 
-
+//            if celltag + 1 != urls.id { return }
             DispatchQueue.main.async { [weak self] in
+                
                 print("00000000000000000000")
+                print(url)
                 guard let self = self else { return }
+                
                 self.image = UIImage(data: data)
                 
             }
-            
+
+
             self.saveImageToCache(data: data, response: response)
 
         }.resume()
@@ -55,7 +59,7 @@ class ImageView: UIImageView {
         URLCache.shared.storeCachedResponse(cachedResponse, for: URLRequest(url: responseURL))
     }
     
-    private func getCachedImage(url: URL) -> UIImage? {
+    func getCachedImage(url: URL) -> UIImage? {
         if let cachedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
             return UIImage(data: cachedResponse.data)
         }
