@@ -9,10 +9,7 @@ import UIKit
 
 class ImageView: UIImageView {
     
-    var cellTag: Int?
-    var indexPath: IndexPath?
-    
-    func fetchImage(with urls: DetailResult, _ celltag: Int){
+    func fetchImage(with urls: DetailResult, _ completion: @escaping (UIImage) -> ()) {
         guard let url = urls.image else { return }
         guard let imageUrl = url.getURL() else {
             image = UIImage(named: "notFound")
@@ -25,7 +22,7 @@ class ImageView: UIImageView {
             return
             
         }
-      
+        
         URLSession.shared.dataTask(with: imageUrl) { [weak self] data, response, error in
             if let error = error { print(error); return }
 
@@ -34,24 +31,17 @@ class ImageView: UIImageView {
             guard let responseURL = response.url else {  return }
 
             if responseURL.absoluteString != url { return }
-
-//            if celltag + 1 != urls.id { return }
-            DispatchQueue.main.async { [weak self] in
-                
+            
+            DispatchQueue.main.async {
                 print("00000000000000000000")
-                print(url)
-                guard let self = self else { return }
-                
-                self.image = UIImage(data: data)
-                
+                guard let image = UIImage(data: data) else { return }
+                completion(image)
             }
-
-
+            
             self.saveImageToCache(data: data, response: response)
 
         }.resume()
     }
-    
    
     func saveImageToCache(data: Data, response: URLResponse) {
         guard let responseURL = response.url else { return }
