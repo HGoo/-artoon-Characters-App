@@ -25,6 +25,7 @@
 		DD63BE4627F49DD30037BC0A /* SimpsonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63BE4527F49DD30037BC0A /* SimpsonsViewController.swift */; };
 		DD63BE4827F49E600037BC0A /* BackColorSim.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63BE4727F49E600037BC0A /* BackColorSim.swift */; };
 		DD63BE4A27F4C77D0037BC0A /* ImageViewSimps.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63BE4927F4C77D0037BC0A /* ImageViewSimps.swift */; };
+		DD9E00F727F4CFE3002C2BE4 /* ModelSimpsons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E00F627F4CFE3002C2BE4 /* ModelSimpsons.swift */; };
 		DDBAF56927E72F2800106A3D /* StorageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAF56827E72F2800106A3D /* StorageData.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		DD63BE4527F49DD30037BC0A /* SimpsonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpsonsViewController.swift; sourceTree = "<group>"; };
 		DD63BE4727F49E600037BC0A /* BackColorSim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackColorSim.swift; sourceTree = "<group>"; };
 		DD63BE4927F4C77D0037BC0A /* ImageViewSimps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewSimps.swift; sourceTree = "<group>"; };
+		DD9E00F627F4CFE3002C2BE4 /* ModelSimpsons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSimpsons.swift; sourceTree = "<group>"; };
 		DDBAF56827E72F2800106A3D /* StorageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				DD2A6EC427D35292007AA8AC /* ModelRaM.swift */,
+				DD9E00F627F4CFE3002C2BE4 /* ModelSimpsons.swift */,
 				DD2A6EC827D36EEB007AA8AC /* ImageLogo.swift */,
 			);
 			path = Model;
@@ -228,6 +231,7 @@
 				DD63BE4627F49DD30037BC0A /* SimpsonsViewController.swift in Sources */,
 				DD11F4EE27E356D70025A8F4 /* ImageView.swift in Sources */,
 				DD2A6EA127D33EB7007AA8AC /* AppDelegate.swift in Sources */,
+				DD9E00F727F4CFE3002C2BE4 /* ModelSimpsons.swift in Sources */,
 				DD2A6EBE27D34AAD007AA8AC /* UserActionCell.swift in Sources */,
 				DD2A6EC527D35292007AA8AC /* ModelRaM.swift in Sources */,
 				DD63BE3D27F45ED50037BC0A /* BackColor.swift in Sources */,

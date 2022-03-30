@@ -65,13 +65,14 @@ class MainViewController: UICollectionViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-
         switch segue.identifier {
         case "rickAndMorty":
-            let characterVC = segue.destination as! CharactersViewController
-            characterVC.fetchCountCharachters()
+            let characterRaMVC = segue.destination as! CharactersViewController
+            characterRaMVC.fetchCountCharachters()
         case "simpsons":
             print("2")
+            let characterSimpVC = segue.destination as! SimpsonsViewController
+            characterSimpVC.fetchDataSimpsons()
         default: break
         }
     }

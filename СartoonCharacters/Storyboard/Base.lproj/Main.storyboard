@@ -211,8 +211,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="O9D-1Z-VN2"/>
                     <connections>
-                        <outlet property="ImgeView" destination="Mvq-Su-Lgg" id="r9B-3r-zTS"/>
-                        <outlet property="image" destination="Mvq-Su-Lgg" id="8RF-XB-Ci5"/>
+                        <outlet property="imageHolder" destination="Mvq-Su-Lgg" id="8RF-XB-Ci5"/>
                         <outlet property="refreshButton" destination="i48-g7-gUa" id="taW-c9-IKS"/>
                     </connections>
                 </viewController>

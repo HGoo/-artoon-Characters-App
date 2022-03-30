@@ -9,7 +9,7 @@ import UIKit
 
 class ImageView: UIImageView {
     
-    func fetchImage(with urls: DetailResult, _ completion: @escaping (UIImage) -> ()) {
+    func fetchImage(with urls: DetailResult, _ comlition: @escaping (UIImage) -> ()) {
         guard let url = urls.image else { return }
         guard let imageUrl = url.getURL() else {
             image = UIImage(named: "notFound")
@@ -18,10 +18,7 @@ class ImageView: UIImageView {
             
         if let cachedImage = self.getCachedImage(url: imageUrl) {
             self.image = cachedImage
-            print("99999999999999999999")
-
             return
-            
         }
         
         URLSession.shared.dataTask(with: imageUrl) { [weak self] data, response, error in
@@ -34,9 +31,8 @@ class ImageView: UIImageView {
             if responseURL.absoluteString != url { return }
             
             DispatchQueue.main.async {
-                print("00000000000000000000")
                 guard let image = UIImage(data: data) else { return }
-                completion(image)
+                comlition(image)
             }
             
             self.saveImageToCache(data: data, response: response)

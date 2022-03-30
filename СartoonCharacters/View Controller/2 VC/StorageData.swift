@@ -20,7 +20,6 @@ extension CharactersViewController {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.getUrlCount()
-                    //self.tableView.reloadData()
                 }
                 print(self.jsonCountCharacters ?? "")
             } catch let error {
