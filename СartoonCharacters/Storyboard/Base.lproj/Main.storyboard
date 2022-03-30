@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4iX-IP-5eF">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Cartoon Characters-->
         <scene sceneID="aJA-di-D0n">
             <objects>
                 <collectionViewController id="gum-EG-UhW" customClass="MainViewController" customModule="СartoonCharacters" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="eXS-1W-v4o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="0.87756956211501536" blue="0.81201403026005514" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="alh-B4-TRR">
                             <size key="itemSize" width="340" height="96"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="10"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="m1B-PW-3an" customClass="UserActionCell" customModule="СartoonCharacters" customModuleProvider="target">
-                                <rect key="frame" x="37" y="0.0" width="340" height="96"/>
+                                <rect key="frame" x="25" y="0.0" width="340" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bUv-Ix-OJK" customClass="CellView" customModule="СartoonCharacters" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="340" height="96"/>
@@ -33,6 +34,7 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="6rx-Vb-qgN">
                                             <rect key="frame" x="-0.034452197007794894" y="0.0" width="340" height="95.999999999999957"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="0.62552562127258338" blue="0.76946238014325496" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
@@ -53,16 +55,21 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="cell" id="5OQ-CN-jEc">
+                            <rect key="frame" x="0.0" y="96" width="390" height="10"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="gum-EG-UhW" id="4xE-f3-4jK"/>
                             <outlet property="delegate" destination="gum-EG-UhW" id="nJz-y9-62g"/>
                         </connections>
                     </collectionView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="AmW-6L-7Ua"/>
+                    <navigationItem key="navigationItem" title="Cartoon Characters" id="PPn-mE-CfH"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="d6g-jX-i2e" kind="show" identifier="rickAndMorty" id="kKP-sl-4h9"/>
+                        <segue destination="lib-kc-9KV" kind="show" identifier="simpsons" id="jpe-gI-YrT"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlz-zy-60A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -74,15 +81,15 @@
             <objects>
                 <tableViewController id="d6g-jX-i2e" customClass="CharactersViewController" customModule="СartoonCharacters" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="aIf-YR-vDR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.81960785390000002" green="0.94509804249999996" blue="0.74117654560000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CharacterCell" rowHeight="150" id="AH3-Sw-rLO" customClass="CharacterCell" customModule="СartoonCharacters" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AH3-Sw-rLO" id="age-1O-zLT">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vka-WK-mX8" customClass="ImageView" customModule="СartoonCharacters" customModuleProvider="target">
@@ -98,22 +105,22 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="U0R-dz-YIv">
-                                            <rect key="frame" x="153" y="2" width="259" height="146"/>
+                                            <rect key="frame" x="153" y="2" width="230" height="146"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdC-6H-j4I">
-                                                    <rect key="frame" x="0.0" y="0.0" width="259" height="48.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="230" height="48.666666666666664"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGj-IR-N4G">
-                                                    <rect key="frame" x="0.0" y="48.5" width="259" height="49"/>
+                                                    <rect key="frame" x="0.0" y="48.666666666666671" width="230" height="48.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7w2-4J-nus">
-                                                    <rect key="frame" x="0.0" y="97.5" width="259" height="48.5"/>
+                                                    <rect key="frame" x="0.0" y="97.333333333333329" width="230" height="48.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -140,7 +147,7 @@
                                         <constraint firstItem="U0R-dz-YIv" firstAttribute="top" secondItem="age-1O-zLT" secondAttribute="top" constant="2" id="Umc-Jq-736"/>
                                         <constraint firstItem="gcP-Rf-XDB" firstAttribute="top" secondItem="age-1O-zLT" secondAttribute="topMargin" constant="54" id="VyB-Pb-bBe"/>
                                         <constraint firstItem="gcP-Rf-XDB" firstAttribute="leading" secondItem="age-1O-zLT" secondAttribute="leadingMargin" constant="45" id="YyZ-YY-wSU"/>
-                                        <constraint firstAttribute="trailing" secondItem="U0R-dz-YIv" secondAttribute="trailing" constant="2" id="zhv-09-4bs"/>
+                                        <constraint firstAttribute="trailing" secondItem="U0R-dz-YIv" secondAttribute="trailing" constant="7" id="zhv-09-4bs"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -161,7 +168,57 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b69-xa-Aq0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1953.6231884057972" y="124.55357142857142"/>
+            <point key="canvasLocation" x="1997" y="-218"/>
+        </scene>
+        <!--Simpsons View Controller-->
+        <scene sceneID="JTN-zD-fba">
+            <objects>
+                <viewController id="lib-kc-9KV" customClass="SimpsonsViewController" customModule="СartoonCharacters" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C0g-Kk-Fed">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mvq-Su-Lgg" customClass="ImageViewSimps" customModule="СartoonCharacters" customModuleProvider="target">
+                                <rect key="frame" x="45" y="170" width="300" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Dbt-x9-HC0"/>
+                                    <constraint firstAttribute="height" constant="400" id="kzj-lW-mPv"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i48-g7-gUa">
+                                <rect key="frame" x="120" y="680" width="150" height="31"/>
+                                <color key="backgroundColor" red="1" green="0.97904329455693917" blue="0.12414129930056861" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="1Zi-Il-buL"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Push"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="79P-ob-Rip"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mvq-Su-Lgg" firstAttribute="centerX" secondItem="C0g-Kk-Fed" secondAttribute="centerX" id="7km-pg-XB5"/>
+                            <constraint firstItem="Mvq-Su-Lgg" firstAttribute="top" secondItem="79P-ob-Rip" secondAttribute="top" constant="82" id="HId-K1-Z6p"/>
+                            <constraint firstItem="i48-g7-gUa" firstAttribute="centerX" secondItem="C0g-Kk-Fed" secondAttribute="centerX" id="fmG-du-ZQ5"/>
+                            <constraint firstItem="i48-g7-gUa" firstAttribute="top" secondItem="Mvq-Su-Lgg" secondAttribute="bottom" constant="110" id="qCp-E7-ODw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="O9D-1Z-VN2"/>
+                    <connections>
+                        <outlet property="ImgeView" destination="Mvq-Su-Lgg" id="r9B-3r-zTS"/>
+                        <outlet property="image" destination="Mvq-Su-Lgg" id="8RF-XB-Ci5"/>
+                        <outlet property="refreshButton" destination="i48-g7-gUa" id="taW-c9-IKS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dPX-Ny-kXI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1995.6521739130437" y="463.39285714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Rf-Ue-ZUh">
@@ -169,7 +226,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4iX-IP-5eF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KE2-MN-CUL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

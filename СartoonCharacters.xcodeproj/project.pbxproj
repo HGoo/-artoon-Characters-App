@@ -18,10 +18,13 @@
 		DD2A6EBE27D34AAD007AA8AC /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A6EBD27D34AAD007AA8AC /* UserActionCell.swift */; };
 		DD2A6EC127D34B32007AA8AC /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A6EC027D34B32007AA8AC /* CharactersViewController.swift */; };
 		DD2A6EC327D34EE9007AA8AC /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A6EC227D34EE9007AA8AC /* CharacterCell.swift */; };
-		DD2A6EC527D35292007AA8AC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A6EC427D35292007AA8AC /* Model.swift */; };
-		DD2A6EC927D36EEB007AA8AC /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A6EC827D36EEB007AA8AC /* Image.swift */; };
+		DD2A6EC527D35292007AA8AC /* ModelRaM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A6EC427D35292007AA8AC /* ModelRaM.swift */; };
+		DD2A6EC927D36EEB007AA8AC /* ImageLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2A6EC827D36EEB007AA8AC /* ImageLogo.swift */; };
 		DD63BE3D27F45ED50037BC0A /* BackColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63BE3C27F45ED50037BC0A /* BackColor.swift */; };
-		DD63BE3F27F4733A0037BC0A /* BackColorMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63BE3E27F4733A0037BC0A /* BackColorMain.swift */; };
+		DD63BE4127F4973D0037BC0A /* BackColorMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63BE4027F4973D0037BC0A /* BackColorMain.swift */; };
+		DD63BE4627F49DD30037BC0A /* SimpsonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63BE4527F49DD30037BC0A /* SimpsonsViewController.swift */; };
+		DD63BE4827F49E600037BC0A /* BackColorSim.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63BE4727F49E600037BC0A /* BackColorSim.swift */; };
+		DD63BE4A27F4C77D0037BC0A /* ImageViewSimps.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD63BE4927F4C77D0037BC0A /* ImageViewSimps.swift */; };
 		DDBAF56927E72F2800106A3D /* StorageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAF56827E72F2800106A3D /* StorageData.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,10 +42,13 @@
 		DD2A6EBD27D34AAD007AA8AC /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		DD2A6EC027D34B32007AA8AC /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		DD2A6EC227D34EE9007AA8AC /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
-		DD2A6EC427D35292007AA8AC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		DD2A6EC827D36EEB007AA8AC /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		DD2A6EC427D35292007AA8AC /* ModelRaM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRaM.swift; sourceTree = "<group>"; };
+		DD2A6EC827D36EEB007AA8AC /* ImageLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLogo.swift; sourceTree = "<group>"; };
 		DD63BE3C27F45ED50037BC0A /* BackColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackColor.swift; sourceTree = "<group>"; };
-		DD63BE3E27F4733A0037BC0A /* BackColorMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackColorMain.swift; sourceTree = "<group>"; };
+		DD63BE4027F4973D0037BC0A /* BackColorMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackColorMain.swift; sourceTree = "<group>"; };
+		DD63BE4527F49DD30037BC0A /* SimpsonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpsonsViewController.swift; sourceTree = "<group>"; };
+		DD63BE4727F49E600037BC0A /* BackColorSim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackColorSim.swift; sourceTree = "<group>"; };
+		DD63BE4927F4C77D0037BC0A /* ImageViewSimps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewSimps.swift; sourceTree = "<group>"; };
 		DDBAF56827E72F2800106A3D /* StorageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +107,7 @@
 			children = (
 				DD2A6EB827D342A2007AA8AC /* 1 VC */,
 				DD2A6EB927D342A8007AA8AC /* 2 VC */,
+				DD63BE4227F49D1A0037BC0A /* 3 VC */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -108,8 +115,8 @@
 		DD2A6EB627D3420E007AA8AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DD2A6EC427D35292007AA8AC /* Model.swift */,
-				DD2A6EC827D36EEB007AA8AC /* Image.swift */,
+				DD2A6EC427D35292007AA8AC /* ModelRaM.swift */,
+				DD2A6EC827D36EEB007AA8AC /* ImageLogo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,7 +127,7 @@
 				DD2A6EBB27D3444C007AA8AC /* MainViewController.swift */,
 				DD2A6EBD27D34AAD007AA8AC /* UserActionCell.swift */,
 				DD11F4AD27DA87190025A8F4 /* CellView.swift */,
-				DD63BE3E27F4733A0037BC0A /* BackColorMain.swift */,
+				DD63BE4027F4973D0037BC0A /* BackColorMain.swift */,
 			);
 			path = "1 VC";
 			sourceTree = "<group>";
@@ -135,6 +142,16 @@
 				DD63BE3C27F45ED50037BC0A /* BackColor.swift */,
 			);
 			path = "2 VC";
+			sourceTree = "<group>";
+		};
+		DD63BE4227F49D1A0037BC0A /* 3 VC */ = {
+			isa = PBXGroup;
+			children = (
+				DD63BE4527F49DD30037BC0A /* SimpsonsViewController.swift */,
+				DD63BE4927F4C77D0037BC0A /* ImageViewSimps.swift */,
+				DD63BE4727F49E600037BC0A /* BackColorSim.swift */,
+			);
+			path = "3 VC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,17 +225,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD63BE4627F49DD30037BC0A /* SimpsonsViewController.swift in Sources */,
 				DD11F4EE27E356D70025A8F4 /* ImageView.swift in Sources */,
-				DD63BE3F27F4733A0037BC0A /* BackColorMain.swift in Sources */,
 				DD2A6EA127D33EB7007AA8AC /* AppDelegate.swift in Sources */,
 				DD2A6EBE27D34AAD007AA8AC /* UserActionCell.swift in Sources */,
-				DD2A6EC527D35292007AA8AC /* Model.swift in Sources */,
+				DD2A6EC527D35292007AA8AC /* ModelRaM.swift in Sources */,
 				DD63BE3D27F45ED50037BC0A /* BackColor.swift in Sources */,
 				DDBAF56927E72F2800106A3D /* StorageData.swift in Sources */,
 				DD2A6EA327D33EB7007AA8AC /* SceneDelegate.swift in Sources */,
+				DD63BE4A27F4C77D0037BC0A /* ImageViewSimps.swift in Sources */,
 				DD2A6EC327D34EE9007AA8AC /* CharacterCell.swift in Sources */,
-				DD2A6EC927D36EEB007AA8AC /* Image.swift in Sources */,
+				DD2A6EC927D36EEB007AA8AC /* ImageLogo.swift in Sources */,
 				DD2A6EC127D34B32007AA8AC /* CharactersViewController.swift in Sources */,
+				DD63BE4127F4973D0037BC0A /* BackColorMain.swift in Sources */,
+				DD63BE4827F49E600037BC0A /* BackColorSim.swift in Sources */,
 				DD2A6EBC27D3444C007AA8AC /* MainViewController.swift in Sources */,
 				DD11F4AE27DA87190025A8F4 /* CellView.swift in Sources */,
 			);

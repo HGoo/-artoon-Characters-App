@@ -9,7 +9,7 @@ import UIKit
 
 enum Cartoons: String, CaseIterable {
     case rickAndMorty = "Rick And Morty"
-    case def1 = "No name1"
+    case simpsons = "Simpsons"
     case def2 = "No name2"
     case def3 = "No name3"
     case def4 = "No name4"
@@ -24,16 +24,11 @@ class MainViewController: UICollectionViewController {
     let cartons = Cartoons.allCases
     let logoImage = Image()
     
-    let primaryColor = UIColor(red: 210/255, green: 109/255, blue: 128/255, alpha: 1)
-    let secondaryColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
-
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .blue
-        addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        navigationBar()
     }
         
     // MARK: UICollectionViewDataSource
@@ -60,6 +55,8 @@ class MainViewController: UICollectionViewController {
         switch userAction {
         case .rickAndMorty:
             performSegue(withIdentifier: "rickAndMorty", sender: self)
+        case .simpsons:
+            performSegue(withIdentifier: "simpsons", sender: self)
         default: break
             
         }
@@ -67,16 +64,18 @@ class MainViewController: UICollectionViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let characterVC = segue.destination as! CharactersViewController
         
+
         switch segue.identifier {
         case "rickAndMorty":
+            let characterVC = segue.destination as! CharactersViewController
             characterVC.fetchCountCharachters()
-            
+        case "simpsons":
+            print("2")
         default: break
         }
     }
-    
+
     
 }
 
