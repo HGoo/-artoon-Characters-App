@@ -15,20 +15,17 @@ class CharacterCell: UITableViewCell {
     @IBOutlet var idChar: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    private weak var task: URLSessionTask?
     
     var index: IndexPath!
     var indexAsync: IndexPath?
     var character: DetailResult?
-    
-    var cangePlug = false
-    
-    
+
     
     func configure(with character: DetailResult?, _ index: IndexPath) {
         
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
+        imageInCell.image = nil
         
         guard let character = character else { return }
         nameCell.text = character.name
@@ -38,15 +35,20 @@ class CharacterCell: UITableViewCell {
         self.index = index
         self.character = character
         
-        imageInCell.image = nil
+        
         
         imageInCell.fetchImage(with: character) { [weak self] response in
             
             self?.indexAsync = index
             self?.equals(response)
         }
+        
         UITableView().reloadData()
-    }
+
+        if imageInCell.image != nil {
+            activityIndicator.stopAnimating()
+        }
+            }
     
     func equals(_ image: UIImage) {
         if self.indexAsync?.row == self.index.row {

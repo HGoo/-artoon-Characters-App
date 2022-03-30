@@ -17,8 +17,9 @@ class ImageView: UIImageView {
         }
             
         if let cachedImage = self.getCachedImage(url: imageUrl) {
-            print("99999999999999999999")
             self.image = cachedImage
+            print("99999999999999999999")
+
             return
             
         }
@@ -55,6 +56,8 @@ class ImageView: UIImageView {
         }
         return nil
     }
+    
+    
 }
 
 

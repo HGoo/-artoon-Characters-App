@@ -23,6 +23,18 @@ class MainViewController: UICollectionViewController {
     
     let cartons = Cartoons.allCases
     let logoImage = Image()
+    
+    let primaryColor = UIColor(red: 210/255, green: 109/255, blue: 128/255, alpha: 1)
+    let secondaryColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
+
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = .blue
+        addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+    }
         
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -43,8 +55,7 @@ class MainViewController: UICollectionViewController {
     // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let userAction = cartons[indexPath.item]
-      
-        
+
     
         switch userAction {
         case .rickAndMorty:

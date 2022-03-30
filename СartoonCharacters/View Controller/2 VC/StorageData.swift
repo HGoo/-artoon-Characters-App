@@ -10,7 +10,6 @@ import Foundation
 extension CharactersViewController {
 
     func fetchCountCharachters() {
-        
         guard let url = URL(string: jsonUrlRaM ) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, _ in
@@ -21,7 +20,7 @@ extension CharactersViewController {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.getUrlCount()
-                    self.tableView.reloadData()
+                    //self.tableView.reloadData()
                 }
                 print(self.jsonCountCharacters ?? "")
             } catch let error {
@@ -46,5 +45,6 @@ extension CharactersViewController {
         jsonUrlRaM = finalStringURL
         
         fetchDataRaM()
+        
     }
 }
