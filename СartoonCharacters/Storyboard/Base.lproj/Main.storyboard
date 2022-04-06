@@ -198,26 +198,47 @@
                                         <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="refreshPresed:" destination="KJh-CA-ogK" eventType="touchUpInside" id="TAm-3k-VTs"/>
+                                    <action selector="refreshPresed:" destination="lib-kc-9KV" eventType="touchUpInside" id="hXl-IN-aC2"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwi-kU-5EN">
+                                <rect key="frame" x="40" y="95" width="310" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="SCF-Aj-IDM">
+                                <rect key="frame" x="185" y="360" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="79P-ob-Rip"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="79P-ob-Rip" firstAttribute="trailing" secondItem="iwi-kU-5EN" secondAttribute="trailing" constant="40" id="2Us-Ex-Dr6"/>
+                            <constraint firstItem="iwi-kU-5EN" firstAttribute="top" secondItem="79P-ob-Rip" secondAttribute="top" constant="7" id="3zH-fx-HjB"/>
+                            <constraint firstItem="Mvq-Su-Lgg" firstAttribute="top" secondItem="iwi-kU-5EN" secondAttribute="bottom" constant="7" id="4xi-cS-f8G"/>
                             <constraint firstItem="Mvq-Su-Lgg" firstAttribute="centerX" secondItem="C0g-Kk-Fed" secondAttribute="centerX" id="7km-pg-XB5"/>
                             <constraint firstItem="Mvq-Su-Lgg" firstAttribute="top" secondItem="79P-ob-Rip" secondAttribute="top" constant="82" id="HId-K1-Z6p"/>
+                            <constraint firstItem="SCF-Aj-IDM" firstAttribute="centerX" secondItem="Mvq-Su-Lgg" secondAttribute="centerX" id="JFd-e8-KUY"/>
                             <constraint firstItem="i48-g7-gUa" firstAttribute="centerX" secondItem="C0g-Kk-Fed" secondAttribute="centerX" id="fmG-du-ZQ5"/>
+                            <constraint firstItem="iwi-kU-5EN" firstAttribute="leading" secondItem="79P-ob-Rip" secondAttribute="leading" constant="40" id="izY-xl-Z7y"/>
                             <constraint firstItem="i48-g7-gUa" firstAttribute="top" secondItem="Mvq-Su-Lgg" secondAttribute="bottom" constant="110" id="qCp-E7-ODw"/>
+                            <constraint firstItem="SCF-Aj-IDM" firstAttribute="centerY" secondItem="Mvq-Su-Lgg" secondAttribute="centerY" id="wC0-Rx-cbn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="O9D-1Z-VN2"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="SCF-Aj-IDM" id="mJT-Zz-Kot"/>
                         <outlet property="imageHolder" destination="Mvq-Su-Lgg" id="8RF-XB-Ci5"/>
-                        <outlet property="refreshButton" destination="i48-g7-gUa" id="taW-c9-IKS"/>
+                        <outlet property="quoteCharLabel" destination="iwi-kU-5EN" id="VBQ-yo-don"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPX-Ny-kXI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="KJh-CA-ogK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1995.6521739130437" y="463.39285714285711"/>
+            <point key="canvasLocation" x="1995.3846153846152" y="462.79620853080564"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Rf-Ue-ZUh">

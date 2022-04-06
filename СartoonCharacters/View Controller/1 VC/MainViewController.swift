@@ -10,13 +10,6 @@ import UIKit
 enum Cartoons: String, CaseIterable {
     case rickAndMorty = "Rick And Morty"
     case simpsons = "Simpsons"
-    case def2 = "No name2"
-    case def3 = "No name3"
-    case def4 = "No name4"
-    case def5 = "No name5"
-    case def6 = "No name6"
-    case def7 = "No name7"
-    case def8 = "No name8"
 }
 
 class MainViewController: UICollectionViewController {
@@ -27,7 +20,6 @@ class MainViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationBar()
     }
         
@@ -36,7 +28,6 @@ class MainViewController: UICollectionViewController {
         return cartons.count
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! UserActionCell
@@ -44,21 +35,17 @@ class MainViewController: UICollectionViewController {
         cell.characterActionImage.image = UIImage(named: logoImage.image[indexPath.row])
         
         return cell
-        
     }
     
     // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let userAction = cartons[indexPath.item]
 
-    
         switch userAction {
         case .rickAndMorty:
             performSegue(withIdentifier: "rickAndMorty", sender: self)
         case .simpsons:
             performSegue(withIdentifier: "simpsons", sender: self)
-        default: break
-            
         }
     }
     
@@ -70,14 +57,11 @@ class MainViewController: UICollectionViewController {
             let characterRaMVC = segue.destination as! CharactersViewController
             characterRaMVC.fetchCountCharachters()
         case "simpsons":
-            print("2")
             let characterSimpVC = segue.destination as! SimpsonsViewController
             characterSimpVC.fetchDataSimpsons()
         default: break
         }
     }
-
-    
 }
 
 // MARK: - CollectionViewDelegateFlowLayout

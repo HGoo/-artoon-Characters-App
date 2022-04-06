@@ -7,6 +7,6 @@
 
 
 struct Image {
-    let image = ["rickAndMortyLogo", "Logo", "Logo", "Logo", "Logo", "Logo", "Logo", "Logo", "Logo"]
+    let image = ["rickAndMortyLogo", "theSimpsonsLogo"]
     
 }

@@ -6,33 +6,38 @@
 //
 
 import UIKit
+import CoreData
 
 class SimpsonsViewController: UIViewController {
     
-    private let jsonSimpsons = "https://thesimpsonsquoteapi.glitch.me/quotes?count=1"
+    var tasks: [Task] = []
+    
+    // MARK: - Private Methods
+    private let manageContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private let jsonSimpsons = "https://thesimpsonsquoteapi.glitch.me/quotes?count=50"
     private var character: [CharacterInfoSimps]?
+    private var input = 0
     
     // MARK: - IBOutlets
     @IBOutlet var imageHolder: ImageViewSimps!
-    @IBOutlet var refreshButton: UIButton!
-   
+    @IBOutlet var quoteCharLabel: UILabel!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        fetchDataSimpsons()
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
         
-       
-        ImageViewSimps().fetchImage(with: character?[0].image ?? "") { image in
-            if self.imageHolder.image != nil {
-                self.imageHolder.image = image
-            }
-        }
-        
-            
+        quoteCharLabel.isHidden = true
         navigationBar()
         
+    }
+    
+    // MARK: - IBActions
+    @IBAction func refreshPresed(_ sender: UIButton) {
+        sender.pulse()
+        upgradeImage()
     }
     
     // MARK: - Methods
@@ -41,14 +46,13 @@ class SimpsonsViewController: UIViewController {
         guard let url = URL(string: jsonSimpsons) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, _ in
-            guard let data = data, let response = response else { return }
+            guard let data = data else { return }
             
             do {
                 self.character = try JSONDecoder().decode([CharacterInfoSimps].self, from: data)
                 DispatchQueue.main.async {
-                    
+                    self.upgradeImage()
                 }
-                ImageViewSimps().saveImageToCache(data: data, response: response)
                 print("Lod in cach")
                 
                 print(self.character ?? "Error characters")
@@ -58,7 +62,16 @@ class SimpsonsViewController: UIViewController {
         }.resume()
     }
     
-    
-    
-
+    func upgradeImage() {
+        
+        ImageViewSimps().fetchImage(with: character?[input].image ?? "") { image in
+            self.imageHolder.image = image
+            self.activityIndicator.stopAnimating()
+        }
+        quoteCharLabel.isHidden = false
+        quoteCharLabel.text = character?[input].quote
+        
+        if input == (character?.count ?? 1) - 1 { input = 0 }
+        input += 1
+    }
 }

@@ -22,7 +22,6 @@ class CharactersViewController: UITableViewController {
         navigationBar()
         
         tableView.separatorStyle = .none
-        tableView.prefetchDataSource = self
     }
     
     // MARK: - Table View Data Sourse
@@ -42,9 +41,6 @@ class CharactersViewController: UITableViewController {
         
        
     }
-    
-//        override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
@@ -74,32 +70,5 @@ class CharactersViewController: UITableViewController {
                 print(error)
             }
         }.resume()
-    }
-}
-
-// MARK: - UITableViewDataSourcePrefetching
-extension CharactersViewController: UITableViewDataSourcePrefetching {
-    
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        
-            indexPaths.first.map ({ index in
-            
-            guard let url = characters?[index.row].image else { return }
-            guard let imgeUrl = URL(string: url) else { return }
-            
-            URLSession.shared.dataTask(with: imgeUrl) { data, response, error in
-                if let error = error { print(error); return }
-                guard let data = data, let response = response else { return }
-                guard let responseURL = response.url else {  return }
-                
-                if responseURL.absoluteString != url { return }
-                
-                DispatchQueue.main.async {
-                    ImageView().saveImageToCache(data: data, response: response)
-                }
-                
-            }.resume()
-        })
-        
     }
 }

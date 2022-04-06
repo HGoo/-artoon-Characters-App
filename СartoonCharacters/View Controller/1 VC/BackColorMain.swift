@@ -9,9 +9,7 @@
 import UIKit
 
 extension MainViewController {
-    
     func navigationBar() {
-        // Navihation bar color
         let appearance = UINavigationBarAppearance()
         
         appearance.configureWithOpaqueBackground()

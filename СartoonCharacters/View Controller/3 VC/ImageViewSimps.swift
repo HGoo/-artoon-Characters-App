@@ -10,27 +10,20 @@ import UIKit
 class ImageViewSimps: UIImageView {
     
     func fetchImage(with url: String, _ comlition: @escaping (UIImage) -> ()) {
-        guard let imageUrl = url.getURL() else {
+            guard let imageUrl = url.getURL() else {
             image = UIImage(named: "notFound")
             return
         }
-        
         if let cachedImage = self.getCachedImage(url: imageUrl) {
             self.image = cachedImage
-            print("99999999999999999999")
             return
         }
         
-        URLSession.shared.dataTask(with: imageUrl) { [weak self] data, response, error in
+        URLSession.shared.dataTask(with: imageUrl) { data, response, error in
             if let error = error { print(error); return }
-            guard let self = self else { return }
             guard let data = data, let response = response else { return }
-            guard let responseURL = response.url else {  return }
-            
-            if responseURL.absoluteString != url { return }
             
             DispatchQueue.main.async {
-                print("00000000000000000000")
                 guard let image = UIImage(data: data) else { return }
                 comlition(image)
             }
@@ -39,6 +32,7 @@ class ImageViewSimps: UIImageView {
             
         }.resume()
     }
+    
     
     func saveImageToCache(data: Data, response: URLResponse) {
         guard let responseURL = response.url else { return }
